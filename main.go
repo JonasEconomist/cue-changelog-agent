@@ -46,9 +46,9 @@ func sendSQSMessage(message string, ctx context.Context) (string, error) {
 	awsSession, err := cpaws.GetSession(ctx)
 	if err != nil {
 		fmt.Println(err.Error())
-		return resp.String(), err
+		return "", err
 	}
-	svc := sqs.New(awsSession, aws.NewConfig().WithRegion(awsRegion))
+	svc := sqs.New(awsSession, aws.NewConfig().WithRegion(AwsRegion))
 
 	input := sqs.SendMessageInput{
 		MessageBody: &message,
