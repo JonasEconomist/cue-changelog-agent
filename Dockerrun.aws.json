@@ -1,0 +1,16 @@
+{
+  "AWSEBDockerrunVersion": "2",
+  "containerDefinitions": [
+      {
+        "name": "worker",
+        "image": "local/cp-worker-storage-economist:latest",
+        "user" : "nobody",
+        "essential": "true",
+        "memoryReservation": "128",
+         "portMappings": [{
+           "hostPort": "9494",
+           "containerPort": "9494"
+         }]
+      }
+    ]
+}
